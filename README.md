@@ -19,9 +19,32 @@ python3 -m http.server 8080
 # 浏览器打开 http://127.0.0.1:8080
 ```
 
-## 部署（GitHub Pages）
-仓库根目录即站点根。推到 `username/username.github.io` 的 `main` 分支，或任意仓库开启 Pages（分支选 `main`、目录 `/root`）即可。
-如遇样式/脚本不加载，确保仓库根目录有 `.nojekyll`（已包含）。
+## 部署上线（三种任选，仓库根目录即站点根）
+
+### 方案 A · GitHub Pages（免费，域名 `你的名.github.io`）
+1. 新建仓库，命名为 `你的GitHub用户名.github.io`（这样直接获得该域名）。
+2. 把本目录推上去：
+   ```bash
+   git remote add origin https://github.com/你的名/你的名.github.io.git
+   git branch -M main
+   git push -u origin main
+   ```
+3. 仓库 **Settings → Pages → Branch 选 `main`、目录 `/root` → Save**。
+4. 等 1~2 分钟，访问 `https://你的名.github.io` 即可。
+   （用任意仓库名也行，同样在第 3 步开启 Pages 即可，只是域名带仓库路径。）
+
+### 方案 B · Vercel（免费，可绑自定义域名）
+1. 注册 Vercel，点 **Add New → Project → Import Git Repository** 选你的仓库。
+2. Framework Preset 选 **Other**，Build Command 留空，Output Directory 填 `.`（根目录）。
+3. 点 Deploy，几十秒后给一个 `xxx.vercel.app` 域名，可在 Settings 里绑自己的域名。
+
+### 方案 C · Cloudflare Pages（免费，全球 CDN 快）
+1. 登录 Cloudflare → **Workers & Pages → Create → Pages → Connect to Git** 选仓库。
+2. Build command 留空，Build output directory 填 `/`（根目录）。
+3. 点 Save and Deploy，得到 `xxx.pages.dev` 域名，Settings → Custom domains 绑自己的域名。
+
+> 根目录已含 `.nojekyll`，纯静态无需任何构建命令，三平台都能直接识别。
+> 推送如需用令牌：GitHub → Settings → Developer settings → Personal access tokens → Fine-grained，权限选目标仓库 `Contents: Read and write`。
 
 ## 授权说明
 源码来自 Asorn 付费开源（见 `asorn.cn`）。你可**改造自用**，但**禁止二次销售或商用**（设计 + 代码已申请专利）。
