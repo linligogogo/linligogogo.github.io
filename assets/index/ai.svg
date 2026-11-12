@@ -5,9 +5,9 @@
 </g>
 <defs>
 <linearGradient id="paint0_linear_485_6" x1="40" y1="0" x2="0" y2="40" gradientUnits="userSpaceOnUse">
-<stop stop-color="white" stop-opacity="0"/>
-<stop offset="0.5" stop-color="white" stop-opacity="0.16"/>
-<stop offset="1" stop-color="white" stop-opacity="0"/>
+<stop stop-color="#1D1D1F" stop-opacity="0"/>
+<stop offset="0.5" stop-color="#1D1D1F" stop-opacity="0.16"/>
+<stop offset="1" stop-color="#1D1D1F" stop-opacity="0"/>
 </linearGradient>
 <linearGradient id="paint1_linear_485_6" x1="20" y1="11.1659" x2="20" y2="27.2207" gradientUnits="userSpaceOnUse">
 <stop stop-color="#EB5DE6"/>
