@@ -243,6 +243,14 @@ img {
 
 .head .main-left .logo {
   height: 24px;
+  display: flex;
+  align-items: center;
+}
+
+.head .main-left .logo img {
+  height: 24px;
+  width: 24px;
+  object-fit: contain;
 }
 
 .head .main-left .tag-cooperate {
