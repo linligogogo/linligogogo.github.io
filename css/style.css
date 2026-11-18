@@ -709,31 +709,34 @@ img {
   height: 64px;
   background-color: rgba(0, 0, 0, 0.05);
   border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
+/* 会跟随鼠标位移的图形层 */
+.index .hello .hello-right .eyes-container .eye .eye-mark {
+  display: block;
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  transform: translate(0, 0);
+  transition: transform .18s ease-out;
+  will-change: transform;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* 原来的淡光斑层，保留但不再承担位移 */
 .index .hello .hello-right .eyes-container .eye .pupil {
-  position: absolute;
-  width: 64px;
-  height: 64px;
-  background: radial-gradient(50% 50% at 50% 50%, rgba(0, 0, 0, 0.10) 0%, rgba(0, 0, 0, 0) 100%);
-  border-radius: 50%;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  display: none;
 }
 
-.index .hello .hello-right .eyes-container .eye-pic-one {
-  background-image: url(../assets/index/eye_pic_one.svg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.index .hello .hello-right .eyes-container .eye-pic-two {
-  background-image: url(../assets/index/eye_pic_two.svg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+@media (prefers-reduced-motion: reduce) {
+  .index .hello .hello-right .eyes-container .eye .eye-mark {
+    transition: none;
+  }
 }
 
 .index .main-content {

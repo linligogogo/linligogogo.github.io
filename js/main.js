@@ -144,19 +144,26 @@ document.addEventListener("DOMContentLoaded", () => {
         };
     }
 
-    // ---首页眼睛
+    // ---首页图标跟随鼠标
     const eyes = document.querySelectorAll('.eye');
-    document.addEventListener('mousemove', throttle((event) => {
-        eyes.forEach(eye => {
-            const boundingBox = eye.getBoundingClientRect();
-            const eyeCenterX = boundingBox.left + boundingBox.width / 2;
-            const eyeCenterY = boundingBox.top + boundingBox.height / 2;
-            const angle = Math.atan2(event.clientY - eyeCenterY, event.clientX - eyeCenterX);
-            const distance = Math.min(boundingBox.width / 4, boundingBox.height / 4);
-            const pupil = eye.querySelector('.pupil');
-            pupil.style.transform = `translate(-50%, -50%) translate(${Math.cos(angle) * distance}px, ${Math.sin(angle) * distance}px)`;
-        });
-    }, 16));
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (eyes.length && !reduceMotion) {
+        document.addEventListener('mousemove', throttle((event) => {
+            eyes.forEach(eye => {
+                const mark = eye.querySelector('.eye-mark');
+                if (!mark) return;
+                const box = eye.getBoundingClientRect();
+                const centerX = box.left + box.width / 2;
+                const centerY = box.top + box.height / 2;
+                const angle = Math.atan2(event.clientY - centerY, event.clientX - centerX);
+                // 位移半径 = 容器宽度 * 系数，保证图形不会跑出圆形底
+                const radius = box.width * 0.16;
+                const dx = Math.cos(angle) * radius;
+                const dy = Math.sin(angle) * radius;
+                mark.style.transform = `translate(${dx.toFixed(1)}px, ${dy.toFixed(1)}px)`;
+            });
+        }, 16));
+    }
 
     // ---导航栏滚动时背景模糊
     const navbar = document.getElementById('headscrollbg');
