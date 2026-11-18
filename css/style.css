@@ -718,7 +718,7 @@ img {
 /* 会跟随鼠标位移的图形层 */
 .index .hello .hello-right .eyes-container .eye .eye-mark {
   display: block;
-  width: 30px;
+  width: auto;
   height: 30px;
   object-fit: contain;
   transform: translate(0, 0);
