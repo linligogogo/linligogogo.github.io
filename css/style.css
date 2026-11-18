@@ -1494,17 +1494,20 @@ img {
   height: 40px;
   min-width: 40px;
   max-width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
 }
 
 .tool .tool-list .tool-list-item .item a .card .logo img {
   display: block;
-  width: 40px;
-  height: 40px;
-  min-width: 40px;
-  max-width: 40px;
-  min-height: 40px;
-  max-height: 40px;
+  width: 26px;
+  height: 26px;
+  min-width: 26px;
+  max-width: 26px;
+  min-height: 26px;
+  max-height: 26px;
   object-fit: contain;
 }
 
