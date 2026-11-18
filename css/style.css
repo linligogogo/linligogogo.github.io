@@ -1489,11 +1489,13 @@ img {
 
 .tool .tool-list .tool-list-item .item a .card .logo {
   position: relative;
-  flex: 0 0 40px;
-  width: 40px;
-  height: 40px;
-  min-width: 40px;
-  max-width: 40px;
+  flex: 0 0 20px;
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  max-width: 20px;
+  min-height: 20px;
+  max-height: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1502,12 +1504,12 @@ img {
 
 .tool .tool-list .tool-list-item .item a .card .logo img {
   display: block;
-  width: 26px;
-  height: 26px;
-  min-width: 26px;
-  max-width: 26px;
-  min-height: 26px;
-  max-height: 26px;
+  width: 20px !important;
+  height: 20px !important;
+  min-width: 20px;
+  max-width: 20px;
+  min-height: 20px;
+  max-height: 20px;
   object-fit: contain;
 }
 
